@@ -1,8 +1,3 @@
-/*drop table card_holder;
-drop table credit_card ;
-drop table merchant ;
-drop table merchant_category ;
-drop table transaction ;*/
 
 CREATE TABLE "card_holder" (
     "id" int   NOT NULL,
@@ -60,8 +55,3 @@ REFERENCES "credit_card" ("card");
 ALTER TABLE "transaction" ADD CONSTRAINT "fk_transaction_id_merchant" FOREIGN KEY("id_merchant")
 REFERENCES "merchant" ("id");
 
-/*select * from credit_card ;
-select * from card_holder ch ;
-select * from merchant m ;
-select * from merchant_category mc ;
-select * from "transaction" t ;*/

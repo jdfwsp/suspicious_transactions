@@ -1,11 +1,12 @@
 
-select * from card_holder ch ;
+/*select * from card_holder ch ;
 select * from credit_card cc ;
 select * from merchant_category mc ;
 select * from merchant m ;
 select * from "transaction" t ;
 drop table full_data ;
-drop table "transaction" ;
+drop table "transaction" ;*/
+
 SELECT
 	ch.name,
 	cc.card,
@@ -33,8 +34,9 @@ inner join merchant_category mc
 order by t.id;
 
 -- group transactions by cardholder
+create view num_tx as
 select name, count(*) as "num_tx"
-into tx_per_person
+--into tx_per_person
 from full_data 
 group by name
 order by name;
@@ -42,8 +44,9 @@ order by name;
 drop table small_tx_per_person;
 
 -- count transactions < $2
+create view num_small as
 select count(*) as "num_small_tx", name
-into small_tx_per_person
+--into small_tx_per_person
 from full_data fd 
 where amount <= 2
 group by name
@@ -67,6 +70,7 @@ inner join small_tx_per_person stpp
 order by percentage desc ;
 
 -- top 100 highest tx between 7 & 9 am
+create view high_100 as
 select transaction_id, amount, time, merch_type from full_data fd 
 where time between '07:00:00' and '09:00:00'
 order by amount desc limit 100;
@@ -76,22 +80,44 @@ where amount > 300
 order by amount desc limit 100;
 
 -- top 5 merchants prone to being hacked using small transactions
+create view top_5_merch as
 select merch_name, count(*) as "sus_merch_tx"
 from full_data fd where amount <= 2
 group by merch_name
 order by sus_merch_tx desc limit 5;
 
 -- extract hour
+create view hour_tx as
 select count (*), extract(hour from date) from "transaction"
 where amount <= 2
 group by date_part
 order by count desc;
 
 
+SELECT
+	cc.card,
+	cc.cardholder_id,
+	t.id as transaction_id,
+	t.date as date,
+	t.id_merchant,
+	t.amount,
+	m.id as merch_id,
+	m.name as merch_name,
+	mc.id as merchant_category,
+	mc.name as merch_type
+into anon_data
+FROM
+	credit_card cc 
+INNER JOIN "transaction" t 
+    ON t.card = cc.card
+inner join merchant m 
+	on t.id_merchant = m.id 
+inner join merchant_category mc 
+	on m.id_merchant_category = mc.id 
+order by t.id;
 
-
-
-
+select * from anon_data;
+drop table anon_data;
 
 
 
