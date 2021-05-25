@@ -94,10 +94,30 @@ group by date_part
 order by count desc;
 
 
+SELECT
+	cc.card,
+	cc.cardholder_id,
+	t.id as transaction_id,
+	t.date as date,
+	t.id_merchant,
+	t.amount,
+	m.id as merch_id,
+	m.name as merch_name,
+	mc.id as merchant_category,
+	mc.name as merch_type
+into anon_data
+FROM
+	credit_card cc 
+INNER JOIN "transaction" t 
+    ON t.card = cc.card
+inner join merchant m 
+	on t.id_merchant = m.id 
+inner join merchant_category mc 
+	on m.id_merchant_category = mc.id 
+order by t.id;
 
-
-
-
+select * from anon_data;
+drop table anon_data;
 
 
 
