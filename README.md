@@ -107,14 +107,27 @@ The hours of 7 & 9 are low on the list of hours in which there were high dollar 
 
 [Visual Analysis](https://github.com/jdfwsp/suspicious_transactions/blob/main/Files/Code/visual_data_analysis.ipynb)
 
+### - Cardholder 2 has a small range of transaction amount
 ![Cardholder 2](https://github.com/jdfwsp/suspicious_transactions/blob/main/Files/Images/cardholder_2.png)
-
-
+### - Cardholder 18 has periodic transactions greater than $1000
 ![Cardholder 18](https://github.com/jdfwsp/suspicious_transactions/blob/main/Files/Images/cardholder_18.png)
-
+### - When viewed together, Cardholder 18's transactions seem highly irregular.  Notice the Y-axis range in the individual plots.
 ![Combined Plot 2 & 18](https://github.com/jdfwsp/suspicious_transactions/blob/main/Files/Images/2_and_18.png)
+### - Cardholder 25 has several high transactions:
+|Month|Anomalies|
+|-----|---------|
+|January|1|
+|February|0|
+|March|1|
+|April|3|
+|May|1|
+|June|3|
+
+Cardholder 25 has outlier transactions in 5/6 months in the period analyzed.  My conclusion is that this card is likely hacked and needs further investigation.
 
 ![Cardholder 25 January - June](https://github.com/jdfwsp/suspicious_transactions/blob/main/Files/Images/boxplot.png)
+
+### - The interquartile range method seems to detect more outliers than the standard deviation method.  Especially in this use-case, we want to focus on the outliers and not just identify them for exclusion.
 
 [Challenge](https://github.com/jdfwsp/suspicious_transactions/blob/main/Files/Code/challenge.ipynb)
 
