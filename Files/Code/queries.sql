@@ -119,7 +119,11 @@ order by t.id;
 select * from anon_data;
 drop table anon_data;
 
-
+select date, amount as "amt25"
+from anon_data ad
+where cardholder_id = 25
+and date between '2018-01-01' and '2018-06-30'
+order by date;
 
 
 
