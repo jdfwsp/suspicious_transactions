@@ -1,5 +1,8 @@
-# suspicious_transactions
+# 🐍🦫🕵🏻‍♂️💳 SUSPICIOUS TRANSACTIONS 💳🕵🏼‍♀️🦫🐍
 
+![Credit Card Fraudster by Richard Patterson](https://github.com/jdfwsp/suspicious_transactions/blob/main/Files/Images/credit_card_fraudster.jpg)
+
+[Credit Card Fraudster by Richard Patterson](https://www.flickr.com/photos/136770128@N07/42252105582/)
 ## Model the data
 [Schema](https://github.com/jdfwsp/suspicious_transactions/blob/main/Files/Code/schema.sql)
 
@@ -41,7 +44,7 @@ order by cardholder_id, date;
 |11|Shane Shaffer|
 |22|Stephanie Dalton|
 
-The maximum amount that any particular cardholder could've been hacked for is $52, if the hacker is using the small transaction method.  There is much better evidence for a hacked card with transactions over a few hundred dollars.
+The maximum amount that any particular cardholder could be hacked for is $52 if the hacker is using the small transaction method.  There is much better evidence for a hacked card with transactions over a few hundred dollars.
 ### - Top 100 transactions between 7 & 9 AM
 
 |transaction_id|amount|time|merch_type|
