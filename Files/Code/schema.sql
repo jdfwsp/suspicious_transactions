@@ -1,4 +1,3 @@
-
 CREATE TABLE "card_holder" (
     "id" int   NOT NULL,
     "name" varchar(30)   NOT NULL,
@@ -54,4 +53,3 @@ REFERENCES "credit_card" ("card");
 
 ALTER TABLE "transaction" ADD CONSTRAINT "fk_transaction_id_merchant" FOREIGN KEY("id_merchant")
 REFERENCES "merchant" ("id");
-
