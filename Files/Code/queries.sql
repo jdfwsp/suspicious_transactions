@@ -24,6 +24,12 @@ inner join merchant_category mc
 	on m.id_merchant_category = mc.id 
 order by t.id;
 
+-- show transactions by cardholder
+create view by_cardholder as
+select cardholder_id, transaction_id, date, amount
+from full_data
+order by cardholder_id, date;
+
 -- group transactions by cardholder
 create view num_tx as
 select name, count(*) as "num_tx"
@@ -59,6 +65,10 @@ where amount <= 2
 group by date_part
 order by count desc;
 
+
+-- show transactions by cardholder
+select * from full_data
+order by cardholder_id, date;
 
 
 
