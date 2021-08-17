@@ -1,4 +1,4 @@
-# 🐍🦫🕵🏻‍♂️💳 SUSPICIOUS TRANSACTIONS 💳🕵🏼‍♀️🦫🐍
+# 🐍🕵🏻‍♂️💳 SUSPICIOUS TRANSACTIONS 💳🕵🏼‍♀️🐍
 
 ![Credit Card Fraudster by Richard Patterson](https://github.com/jdfwsp/suspicious_transactions/blob/main/Files/Images/credit_card_fraudster.jpg)
 

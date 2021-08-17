@@ -58,17 +58,15 @@ from full_data fd where amount <= 2
 group by merch_name
 order by sus_merch_tx desc limit 5;
 
--- extract hour
+-- transactions over $200 by hour
 create view hour_tx as
 select count (*), extract(hour from date) from "transaction"
-where amount <= 2
+where amount > 200
 group by date_part
 order by count desc;
 
 
--- show transactions by cardholder
-select * from full_data
-order by cardholder_id, date;
+
 
 
 
